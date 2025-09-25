@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Nostri Servizi - T.E.C.H Building Future</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.1) 25%,
+                rgba(102, 126, 234, 0.05) 50%,
+                rgba(118, 75, 162, 0.1) 75%,
+                rgba(102, 126, 234, 0.1) 100%);
+            z-index: -2;
+            animation: backgroundFlow 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFlow {
+            0%, 100% { 
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.1) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.05) 50%,
+                    rgba(118, 75, 162, 0.1) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.05) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.1) 50%,
+                    rgba(118, 75, 162, 0.05) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a365d;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a365d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: #1a365d;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            margin: 40px 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #2d3748;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .services-filter {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 20px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .service-card .category {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #2d3748;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 25px;
+            font-weight: 500;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .price-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .cta-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .specialty-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialty-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="specialtyPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23specialtyPattern)"/></svg>');
+            z-index: 0;
+        }
+
+        .specialty-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .specialty-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .specialty-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-cta {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-cta h2 {
+            font-size: 2.2rem;
+            color: #1a365d;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #1a365d;
+                cursor: pointer;
+                padding: 5px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 20px 10px;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .hero-section,
+            .services-filter,
+            .specialty-section,
+            .contact-cta {
+                margin: 20px 10px;
+                padding: 40px 20px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Filtri per categoria */
+        .service-card[data-category] {
+            display: block;
+        }
+
+        .service-card.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">T.E.C.H Building Future S.r.l</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#calcolatore">Calcolatore</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="servizi.html" class="active">Servizi</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">Home</a> / Servizi
+        </div>
+    </div>
+
+    <section class="hero-section fade-in">
+        <div class="container">
+            <h1 class="hero-title">I Nostri Servizi</h1>
+            <p class="hero-subtitle">Soluzioni complete per ogni esigenza edile e di manutenzione</p>
+            <p class="hero-description">
+                Da oltre 15 anni offriamo servizi specializzati per privati, condomini e aziende. 
+                Dal piccolo intervento alla ristrutturazione completa, con la massima professionalità e qualità.
+            </p>
+        </div>
+    </section>
+
+    <div class="services-filter fade-in">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="tutti">Tutti i Servizi</button>
+                <button class="filter-btn" data-filter="edilizia">Edilizia</button>
+                <button class="filter-btn" data-filter="manutenzione">Manutenzione</button>
+                <button class="filter-btn" data-filter="tecnico">Servizi Tecnici</button>
+                <button class="filter-btn" data-filter="pulizie">Pulizie</button>
+                <button class="filter-btn" data-filter="specializzato">Specializzati</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="services-grid">
+        <!-- SERVIZI EDILIZIA -->
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🏠</div>
+            <div class="category">Edilizia</div>
+            <h3>Cappotti Termici</h3>
+            <p>Isolamento termico professionale con le migliori tecnologie per massima efficienza energetica.</p>
+            <ul class="service-features">
+                <li>Polistirene, poliuretano, fibra di legno</li>
+                <li>Spessori da 8 a 15 cm</li>
+                <li>Certificazione energetica</li>
+                <li>Detrazioni fiscali disponibili</li>
+            </ul>
+            <div class="price-badge">Da €45/mq</div>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🎨</div>
+            <div class="category">Edilizia</div>
+            <h3>Imbiancature & Verniciature</h3>
+            <p>Imbiancature professionali per interni ed esterni con materiali di prima qualità.</p>
+            <ul class="service-features">
+                <li>Pitture ecologiche e antimuffa</li>
+                <li>Verniciature speciali</li>
+                <li>Preparazione superfici inclusa</li>
+                <li>Garanzia sulla durata</li>
+            </ul>
+            <div class="price-badge">Da €8/mq</div>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">✨</div>
+            <div class="category">Edilizia</div>
+            <h3>Decorazioni Artistiche</h3>
+            <p>Stucco veneziano, spatolati marmorino e tecniche decorative esclusive come il finto mare.</p>
+            <ul class="service-features">
+                <li>Stucco veneziano tradizionale</li>
+                <li>Spatolati e marmorino</li>
+                <li>Finto mare e effetti speciali</li>
+                <li>Consulenza design personalizzata</li>
+            </ul>
+            <div class="price-badge">Da €35/mq</div>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🔧</div>
+            <div class="category">Edilizia</div>
+            <h3>Cartongesso & Controsoffitti</h3>
+            <p>Realizzazione pareti divisorie e controsoffitti con finiture impeccabili.</p>
+            <ul class="service-features">
+                <li>Pareti divisorie e nicchie</li>
+                <li>Controsoffitti decorativi</li>
+                <li>Isolamento acustico</li>
+                <li>Finiture personalizzate</li>
+            </ul>
+            <div class="price-badge">Da €25/mq</div>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🏗️</div>
+            <div class="category">Edilizia</div>
+            <h3>Posa Parquet & Zoccolini</h3>
+            <p>Installazione professionale di parquet prefinito e zoccolini con finiture perfette.</p>
+            <ul class="service-features">
+                <li>Parquet prefinito di qualità</li>
+                <li>Zoccolini coordinati</li>
+                <li>Preparazione del sottofondo</li>
+                <li>Garanzia sulla posa</li>
+            </ul>
+            <div class="price-badge">Da €22/mq</div>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Preventivo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🚪</div>
+            <div class="category">Edilizia</div>
+            <h3>Installazione Porte</h3>
+            <p>Montaggio professionale di porte interne ed esterne con regolazioni precise.</p>
+            <ul class="service-features">
+                <li>Porte interne ed esterne</li>
+                <li>Regolazione e messa in bolla</li>
+                <li>Finiture e battiscopa</li>
+                <li>Smaltimento vecchie porte</li>
+            </ul>
+            <div class="price-badge">Da €80/porta</div>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Preventivo</a>
+        </div>
+
+        <!-- SERVIZI MANUTENZIONE -->
+        <div class="service-card fade-in" data-category="manutenzione">
+            <div class="service-icon">🏢</div>
+            <div class="category">Manutenzione</div>
+            <h3>Manutenzioni Condominiali</h3>
+            <p>Servizi completi di manutenzione per condomini con contratti personalizzati.</p>
+            <ul class="service-features">
+                <li>Manutenzione ordinaria programmata</li>
+                <li>Interventi di emergenza</li>
+                <li>Pulizia parti comuni</li>
+                <li>Contratti annuali vantaggiosi</li>
+            </ul>
+            <div class="price-badge">Preventivo su misura</div>
+            <a href="contatti.html" class="cta-button">Richiedi Contratto</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="manutenzione">
+            <div class="service-icon">🏠</div>
+            <div class="category">Manutenzione</div>
+            <h3>Manutenzioni Private</h3>
+            <p>Servizi di manutenzione per abitazioni private e piccoli interventi domestici.</p>
+            <ul class="service-features">
+                <li>Riparazioni domestiche</li>
+                <li>Manutenzione preventiva</li>
+                <li>Piccoli lavori di casa</li>
+                <li>Servizio rapido e affidabile</li>
+            </ul>
+            <div class="price-badge">Da €45/ora</div>
+            <a href="contatti.html" class="cta-button secondary">Prenota Intervento</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="manutenzione">
+            <div class="service-icon">🏭</div>
+            <div class="category">Manutenzione</div>
+            <h3>Manutenzioni Aziendali</h3>
+            <p>Contratti di manutenzione per aziende e uffici con servizio continuativo.</p>
+            <ul class="service-features">
+                <li>Facility management</li>
+                <li>Manutenzione impianti</li>
+                <li>Servizio 24/7 per emergenze</li>
+                <li>Contratti multi-servizio</li>
+            </ul>
+            <div class="price-badge">Contratto personalizzato</div>
+            <a href="contatti.html" class="cta-button">Richiedi Consulenza</a>
+        </div>
+
+        <!-- SERVIZI TECNICI -->
+        <div class="service-card fade-in" data-category="tecnico">
+            <div class="service-icon">⚡</div>
+            <div class="category">Servizi Tecnici</div>
+            <h3>Piccoli Interventi Elettrici</h3>
+            <p>Interventi elettrici di piccola entità e manutenzione impianti esistenti.</p>
+            <ul class="service-features">
+                <li>Sostituzione interruttori e prese</li>
+                <li>Installazione lampadari</li>
+                <li>Riparazione guasti minori</li>
+                <li>Messa a norma piccoli impianti</li>
+            </ul>
+            <div class="price-badge">Da €35/intervento</div>
+            <a href="contatti.html" class="cta-button secondary">Prenota Tecnico</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="tecnico">
+            <div class="service-icon">🔧</div>
+            <div class="category">Servizi Tecnici</div>
+            <h3>Piccoli Interventi Idraulici</h3>
+            <p>Riparazioni idrauliche rapide e manutenzione impianti idrici.</p>
+            <ul class="service-features">
+                <li>Riparazione perdite</li>
+                <li>Sostituzione rubinetteria</li>
+                <li>Sturaggio scarichi</li>
+                <li>Manutenzione caldaie</li>
+            </ul>
+            <div class="price-badge">Da €40/intervento</div>
+            <a href="contatti.html" class="cta-button secondary">Chiamata Urgente</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="tecnico">
+            <div class="service-icon">🪟</div>
+            <div class="category">Servizi Tecnici</div>
+            <h3>Tapparelle & Avvolgibili</h3>
+            <p>Installazione, riparazione e motorizzazione tapparelle e avvolgibili.</p>
+            <ul class="service-features">
+                <li>Riparazione tapparelle rotte</li>
+                <li>Motorizzazione elettrica</li>
+                <li>Sostituzione cinghie e accessori</li>
+                <li>Installazione nuove tapparelle</li>
+            </ul>
+            <div class="price-badge">Da €80/tapparella</div>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Sopralluogo</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="tecnico">
+            <div class="service-icon">🏡</div>
+            <div class="category">Servizi Tecnici</div>
+            <h3>Domotica & Automazione</h3>
+            <p>Installazione sistemi domotici per il controllo intelligente della casa.</p>
+            <ul class="service-features">
+                <li>Automazione luci e tapparelle</li>
+                <li>Controllo climatizzazione</li>
+                <li>Sistemi di sicurezza smart</li>
+                <li>App di controllo remoto</li>
+            </ul>
+            <div class="price-badge">Da €200/ambiente</div>
+            <a href="contatti.html" class="cta-button">Consulenza Gratuita</a>
+        </div>
+
+        <!-- SERVIZI PULIZIE -->
+        <div class="service-card fade-in" data-category="pulizie">
+            <div class="service-icon">🧹</div>
+            <div class="category">Pulizie</div>
+            <h3>Impresa di Pulizie</h3>
+            <p>Servizi di pulizia professionale per abitazioni, uffici e condomini.</p>
+            <ul class="service-features">
+                <li>Pulizie domestiche regolari</li>
+                <li>Pulizie uffici e negozi</li>
+                <li>Pulizie post-ristrutturazione</li>
+                <li>Sanificazione e igienizzazione</li>
+            </ul>
+            <div class="price-badge">Da €12/ora</div>
+            <a href="contatti.html" class="cta-button secondary">Prenota Pulizie</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="pulizie">
+            <div class="service-icon">💧</div>
+            <div class="category">Pulizie</div>
+            <h3>Lavaggio con Idropulitrice</h3>
+            <p>Pulizia professionale di cortili, box, ingressi condominiali e superfici esterne.</p>
+            <ul class="service-features">
+                <li>Pulizia cortili e box auto</li>
+                <li>Lavaggio ingressi condominiali</li>
+                <li>Rimozione sporco incrostato</li>
+                <li>Trattamenti anti-muschio</li>
+            </ul>
+            <div class="price-badge">Da €25/ora</div>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Intervento</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="pulizie">
+            <div class="service-icon">🏠</div>
+            <div class="category">Pulizie</div>
+            <h3>Pulizia Canali e Gronde</h3>
+            <p>Manutenzione e pulizia di grondaie, pluviali e sistemi di drenaggio.</p>
+            <ul class="service-features">
+                <li>Rimozione foglie e detriti</li>
+                <li>Controllo e riparazione gronde</li>
+                <li>Pulizia pluviali intasati</li>
+                <li>Manutenzione preventiva</li>
+            </ul>
+            <div class="price-badge">Da €8/metro</div>
+            <a href="contatti.html" class="cta-button secondary">Prenota Pulizia</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="pulizie">
+            <div class="service-icon">🚿</div>
+            <div class="category">Pulizie</div>
+            <h3>Pulizia Impianti di Scarico</h3>
+            <p>Manutenzione e pulizia professionale di impianti di scarico e fognature.</p>
+            <ul class="service-features">
+                <li>Spurgo fognature intasate</li>
+                <li>Pulizia condotte principali</li>
+                <li>Videoispezioni con telecamera</li>
+                <li>Manutenzione preventiva</li>
+            </ul>
+            <div class="price-badge">Da €80/intervento</div>
+            <a href="contatti.html" class="cta-button secondary">Intervento Urgente</a>
+        </div>
+
+        <!-- SERVIZI SPECIALIZZATI -->
+        <div class="service-card fade-in" data-category="specializzato">
+            <div class="service-icon">🌱</div>
+            <div class="category">Specializzati</div>
+            <h3>Giardinaggio</h3>
+            <p>Servizi completi di giardinaggio e manutenzione del verde.</p>
+            <ul class="service-features">
+                <li>Potatura piante e siepi</li>
+                <li>Manutenzione prati</li>
+                <li>Piantagione e cura fiori</li>
+                <li>Progettazione spazi verdi</li>
+            </ul>
+            <div class="price-badge">Da €20/ora</div>
+            <a href="contatti.html" class="cta-button secondary">Consulenza Verde</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="specializzato">
+            <div class="service-icon">🐭</div>
+            <div class="category">Specializzati</div>
+            <h3>Derattizzazione</h3>
+            <p>Servizi professionali di disinfestazione e controllo infestanti.</p>
+            <ul class="service-features">
+                <li>Eliminazione topi e ratti</li>
+                <li>Controllo insetti infestanti</li>
+                <li>Trattamenti preventivi</li>
+                <li>Certificazioni sanitarie</li>
+            </ul>
+            <div class="price-badge">Da €120/intervento</div>
+            <a href="contatti.html" class="cta-button secondary">Intervento Rapido</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="specializzato">
+            <div class="service-icon">🏗️</div>
+            <div class="category">Specializzati</div>
+            <h3>Trattamento Cemento Armato</h3>
+            <p>Trattamenti protettivi specializzati per opere in cemento armato.</p>
+            <ul class="service-features">
+                <li>Ripristino strutturale</li>
+                <li>Trattamenti anticorrosivi</li>
+                <li>Impermeabilizzazioni</li>
+                <li>Consolidamento strutture</li>
+            </ul>
+            <div class="price-badge">Preventivo su misura</div>
+            <a href="contatti.html" class="cta-button">Sopralluogo Tecnico</a>
+        </div>
+
+        <div class="service-card fade-in" data-category="edilizia">
+            <div class="service-icon">🔄</div>
+            <div class="category">Edilizia</div>
+            <h3>Ristrutturazioni Complete</h3>
+            <p>Progetti chiavi in mano dalla progettazione alla realizzazione finale.</p>
+            <ul class="service-features">
+                <li>Ristrutturazioni complete</li>
+                <li>Coordinamento cantiere</li>
+                <li>Progettazione e design</li>
+                <li>Garanzia totale sull'opera</li>
+            </ul>
+            <div class="price-badge">Da €200/mq</div>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo</a>
+        </div>
+    </div>
+
+    <div class="specialty-section fade-in">
+        <div class="specialty-content">
+            <h2>Specializzazioni Uniche</h2>
+            <p>
+                Oltre ai servizi tradizionali, ci distinguiamo per specializzazioni tecniche avanzate 
+                come il trattamento protettivo del cemento armato, la domotica integrata e sistemi 
+                di manutenzione predittiva. Ogni intervento è personalizzato e coordinato dal 
+                bozzetto all'esecutivo finale.
+            </p>
+            <a href="chi-siamo.html" class="cta-button" style="background: rgba(255,255,255,0.2); margin-right: 15px;">Scopri di Più</a>
+            <a href="gallery.html" class="cta-button" style="background: rgba(255,255,255,0.2);">Vedi i Nostri Lavori</a>
+        </div>
+    </div>
+
+    <div class="contact-cta fade-in">
+        <div class="container">
+            <h2>Richiedi un Preventivo Personalizzato</h2>
+            <p>
+                Ogni progetto è unico. Contattaci per una consulenza gratuita e un preventivo 
+                dettagliato per i tuoi servizi. Sopralluogo gratuito e senza impegno.
+            </p>
+            <a href="index.html#calcolatore" class="cta-button" style="margin-right: 20px;">Calcolatore Online</a>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Sopralluogo Gratuito</a>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Filtri servizi
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Rimuovi active da tutti i bottoni
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Aggiungi active al bottone cliccato
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+                    
+                    serviceCards.forEach(card => {
+                        if (filter === 'tutti') {
+                            card.classList.remove('hidden');
+                        } else {
+                            if (card.getAttribute('data-category') === filter) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Osserva tutti gli elementi con classe fade-in
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Effetti hover per le service cards
+            setTimeout(() => {
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-15px) scale(1.02)';
+                        this.style.boxShadow = '0 25px 60px rgba(102, 126, 234, 0.25)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                        this.style.boxShadow = '0 8px 30px rgba(102, 126, 234, 0.1)';
+                    });
+                });
+            }, 1000);
+        });
+
+        // Menu mobile
+        function createMobileMenu() {
+            const nav = document.querySelector('.nav');
+            const navLinks = document.querySelector('.nav-links');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (window.innerWidth <= 768) {
+                mobileBtn.style.display = 'block';
+                
+                mobileBtn.onclick = () => {
+                    if (navLinks.style.display === 'block') {
+                        navLinks.style.display = 'none';
+                    } else {
+                        navLinks.style.display = 'block';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.right = '0';
+                        navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.padding = '20px';
+                        navLinks.style.borderRadius = '0 0 15px 15px';
+                        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    }
+                };
+            } else {
+                mobileBtn.style.display = 'none';
+                navLinks.style.display = 'flex';
+            }
+        }
+
+        // Inizializza menu mobile
+        document.addEventListener('DOMContentLoaded', createMobileMenu);
+        window.addEventListener('resize', createMobileMenu);
+
+        // Contatore animato per i prezzi (effect opzionale)
+        const animateOnScroll = () => {
+            const priceBadges = document.querySelectorAll('.price-badge');
+            
+            priceBadges.forEach(badge => {
+                const rect = badge.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    badge.style.animation = 'pulse 2s ease-in-out infinite';
+                }
+            });
+        };
+
+        // Aggiungi animazione CSS per pulse
+        const pulseStyle = document.createElement('style');
+        pulseStyle.textContent = `
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+        `;
+        document.head.appendChild(pulseStyle);
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

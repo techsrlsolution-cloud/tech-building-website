@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - T.E.C.H Building Future Srl</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.1) 25%,
+                rgba(102, 126, 234, 0.05) 50%,
+                rgba(118, 75, 162, 0.1) 75%,
+                rgba(102, 126, 234, 0.1) 100%);
+            z-index: -2;
+            animation: backgroundFlow 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFlow {
+            0%, 100% { 
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.1) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.05) 50%,
+                    rgba(118, 75, 162, 0.1) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.05) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.1) 50%,
+                    rgba(118, 75, 162, 0.05) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a365d;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a365d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: #1a365d;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            margin: 40px 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #2d3748;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .contact-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+
+        .contact-form-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .contact-info-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a365d;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            color: #2d3748;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .company-info {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="companyPattern" width="15" height="15" patternUnits="userSpaceOnUse"><circle cx="7.5" cy="7.5" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23companyPattern)"/></svg>');
+            z-index: 0;
+        }
+
+        .company-info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .company-info p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .map-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            text-align: center;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a365d;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .emergency-section {
+            background: rgba(255, 59, 48, 0.1);
+            border: 2px solid rgba(255, 59, 48, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 20px;
+            text-align: center;
+        }
+
+        .emergency-section h3 {
+            color: #d63384;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .emergency-section p {
+            color: #2d3748;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .emergency-btn {
+            background: linear-gradient(135deg, #ff3b30, #d63384);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .emergency-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.3);
+        }
+
+        .working-hours {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .working-hours h4 {
+            color: #1a365d;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .hour-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #1a365d;
+                cursor: pointer;
+                padding: 5px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 20px 10px;
+            }
+            
+            .contact-form-section,
+            .contact-info-section {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .hero-section,
+            .map-section,
+            .emergency-section {
+                margin: 20px 10px;
+                padding: 30px 20px;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Success message styling */
+        .success-message {
+            background: rgba(76, 175, 80, 0.1);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">T.E.C.H Building Future S.r.l</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#calcolatore">Calcolatore</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contatti.html" class="active">Contatti</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">Home</a> / Contatti
+        </div>
+    </div>
+
+    <section class="hero-section fade-in">
+        <div class="container">
+            <h1 class="hero-title">Contattaci</h1>
+            <p class="hero-subtitle">Siamo qui per realizzare i tuoi progetti</p>
+            <p class="hero-description">
+                Preventivi gratuiti, sopralluoghi senza impegno e consulenza professionale. 
+                Contattaci per qualsiasi esigenza edilizia o di manutenzione.
+            </p>
+        </div>
+    </section>
+
+    <div class="contact-main">
+        <!-- Form di Contatto -->
+        <div class="contact-form-section fade-in">
+            <h2 class="section-title">Richiedi un Preventivo</h2>
+            
+            <div class="success-message" id="successMessage">
+                Grazie per averci contattato! Risponderemo entro 24 ore.
+            </div>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome *</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="servizio">Servizio Richiesto</label>
+                    <select id="servizio" name="servizio">
+                        <option value="">Seleziona un servizio</option>
+                        <option value="imbiancatura">Imbiancatura</option>
+                        <option value="cappotto">Cappotto Termico</option>
+                        <option value="decorazioni">Decorazioni Artistiche</option>
+                        <option value="cartongesso">Cartongesso</option>
+                        <option value="ristrutturazione">Ristrutturazione</option>
+                        <option value="manutenzione">Manutenzione</option>
+                        <option value="elettrico">Elettrico</option>
+                        <option value="idraulico">Idraulico</option>
+                        <option value="pulizie">Pulizie</option>
+                        <option value="giardinaggio">Giardinaggio</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="indirizzo">Indirizzo Lavori</label>
+                        <input type="text" id="indirizzo" name="indirizzo" placeholder="Via, Città">
+                    </div>
+                    <div class="form-group">
+                        <label for="urgenza">Urgenza</label>
+                        <select id="urgenza" name="urgenza">
+                            <option value="normale">Normale</option>
+                            <option value="urgente">Urgente (entro 48h)</option>
+                            <option value="immediata">Immediata (oggi)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="messaggio">Descrizione del Progetto *</label>
+                    <textarea id="messaggio" name="messaggio" placeholder="Descrivi dettagliatamente il lavoro da svolgere, dimensioni, tempistiche e qualsiasi altra informazione utile..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="privacy" required style="width: auto; margin-right: 10px;">
+                        Accetto il trattamento dei dati personali secondo la normativa sulla Privacy *
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Invia Richiesta Preventivo
+                </button>
+            </form>
+        </div>
+
+        <!-- Informazioni di Contatto -->
+        <div class="contact-info-section fade-in">
+            <h2 class="section-title">Informazioni di Contatto</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>Sede Operativa</h4>
+                        <p>Via Luigi Borghi, 8<br>21013 Gallarate (VA)</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h4>Telefono</h4>
+                        <p><a href="tel:+39XXXXXXXXX">+39 XXX XXX XXXX</a></p>
+                        <p>Disponibili Lun-Ven 8:00-18:00<br>Sabato 8:00-12:00</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/39XXXXXXXXX">+39 XXX XXX XXXX</a></p>
+                        <p>Rispondiamo rapidamente via chat</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@techbuildingfuture.it">info@techbuildingfuture.it</a></p>
+                        <p>Risposta garantita entro 24h</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📨</div>
+                    <div class="contact-details">
+                        <h4>PEC</h4>
+                        <p><a href="mailto:postmaster@pec.techbuildingfuturesrl.it">postmaster@pec.techbuildingfuturesrl.it</a></p>
+                        <p>Per comunicazioni ufficiali</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="working-hours">
+                <h4>Orari di Lavoro</h4>
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <span>Lunedì - Venerdì</span>
+                        <span>8:00 - 18:00</span>
+                    </div>
+                    <div class="hour-item">
+                        <span>Sabato</span>
+                        <span>8:00 - 12:00</span>
+                    </div>
+                    <div class="hour-item">
+                        <span>Domenica</span>
+                        <span>Solo emergenze</span>
+                    </div>
+                    <div class="hour-item">
+                        <span>Sopralluoghi</span>
+                        <span>Su appuntamento</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-info">
+                <div class="company-info-content">
+                    <h3>Dati Aziendali</h3>
+                    <p><strong>T.E.C.H Building Future Srl</strong></p>
+                    <p>P.IVA: 03960290124</p>
+                    <p>Sede Legale: Via Luigi Borghi, 8</p>
+                    <p>21013 Gallarate (VA)</p>
+                    <p>Codice SDI: USAL8PV</p>
+                    <p>Fondata nel 2010</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Mappa -->
+    <div class="map-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Dove Siamo</h2>
+            <p style="font-size: 1.1rem; color: #2d3748; margin-bottom: 20px;">
+                La nostra sede si trova a Gallarate, in posizione strategica per servire 
+                tutta la provincia di Varese e le aree limitrofe.
+            </p>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    🗺️ Mappa interattiva<br>
+                    <small>Via Luigi Borghi, 8 - 21013 Gallarate (VA)</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Emergenze -->
+    <div class="emergency-section fade-in">
+        <div class="container">
+            <h3>⚠️ Emergenze e Interventi Urgenti</h3>
+            <p>
+                Per perdite d'acqua, guasti elettrici o altri problemi urgenti che richiedono 
+                un intervento immediato, chiamaci anche fuori dagli orari di ufficio.
+            </p>
+            <a href="tel:+39XXXXXXXXX" class="emergency-btn">
+                Chiamata di Emergenza 24/7
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const formObject = {};
+            
+            // Converti FormData in oggetto
+            for (let [key, value] of formData.entries()) {
+                formObject[key] = value;
+            }
+            
+            // Simula invio form (in produzione collegare al backend)
+            console.log('Dati form inviati:', formObject);
+            
+            // Crea email body per mailto
+            const emailBody = createEmailBody(formObject);
+            const mailtoLink = `mailto:info@techbuildingfuture.it?subject=Richiesta Preventivo - ${formObject.servizio || 'Generico'}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Mostra messaggio di successo
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Reset form
+            event.target.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Apri client email dopo 2 secondi
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 2000);
+            
+            // Nascondi messaggio dopo 10 secondi
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 10000);
+        }
+
+        // Crea body email strutturata
+        function createEmailBody(data) {
+            return `RICHIESTA PREVENTIVO - T.E.C.H BUILDING FUTURE
+
+DATI CLIENTE:
+Nome: ${data.nome} ${data.cognome}
+Email: ${data.email}
+Telefono: ${data.telefono}
+
+DETTAGLI RICHIESTA:
+Servizio: ${data.servizio || 'Non specificato'}
+Indirizzo lavori: ${data.indirizzo || 'Non specificato'}
+Urgenza: ${data.urgenza || 'Normale'}
+
+DESCRIZIONE PROGETTO:
+${data.messaggio}
+
+---
+Richiesta inviata tramite modulo contatti del sito web.
+Data: ${new Date().toLocaleDateString('it-IT')} ore ${new Date().toLocaleTimeString('it-IT')}`;
+        }
+
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Osserva tutti gli elementi con classe fade-in
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Effetti hover per contact items
+            setTimeout(() => {
+                document.querySelectorAll('.contact-item').forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateX(10px) scale(1.02)';
+                        this.style.background = 'rgba(102, 126, 234, 0.15)';
+                    });
+                    
+                    item.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateX(0) scale(1)';
+                        this.style.background = 'rgba(102, 126, 234, 0.05)';
+                    });
+                });
+            }, 1000);
+        });
+
+        // Menu mobile
+        function createMobileMenu() {
+            const nav = document.querySelector('.nav');
+            const navLinks = document.querySelector('.nav-links');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (window.innerWidth <= 768) {
+                mobileBtn.style.display = 'block';
+                
+                mobileBtn.onclick = () => {
+                    if (navLinks.style.display === 'block') {
+                        navLinks.style.display = 'none';
+                    } else {
+                        navLinks.style.display = 'block';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.right = '0';
+                        navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.padding = '20px';
+                        navLinks.style.borderRadius = '0 0 15px 15px';
+                        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    }
+                };
+            } else {
+                mobileBtn.style.display = 'none';
+                navLinks.style.display = 'flex';
+            }
+        }
+
+        // Inizializza menu mobile
+        document.addEventListener('DOMContentLoaded', createMobileMenu);
+        window.addEventListener('resize', createMobileMenu);
+
+        // Validazione form avanzata
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearError);
+            });
+        });
+
+        function validateField(event) {
+            const field = event.target;
+            const value = field.value.trim();
+            
+            // Rimuovi errori precedenti
+            clearError(event);
+            
+            if (!value) {
+                showFieldError(field, 'Questo campo è obbligatorio');
+                return false;
+            }
+            
+            // Validazione email
+            if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    showFieldError(field, 'Inserisci un indirizzo email valido');
+                    return false;
+                }
+            }
+            
+            // Validazione telefono
+            if (field.type === 'tel' && value) {
+                const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+                if (!phoneRegex.test(value)) {
+                    showFieldError(field, 'Inserisci un numero di telefono valido');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        function showFieldError(field, message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            errorDiv.textContent = message;
+            errorDiv.style.cssText = `
+                color: #dc3545;
+                font-size: 0.875rem;
+                margin-top: 5px;
+                font-weight: 500;
+            `;
+            
+            field.parentNode.appendChild(errorDiv);
+            field.style.borderColor = '#dc3545';
+        }
+
+        function clearError(event) {
+            const field = event.target;
+            const errorDiv = field.parentNode.querySelector('.field-error');
+            
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+            
+            field.style.borderColor = 'rgba(102, 126, 234, 0.2)';
+        }
+
+        // Auto-resize textarea
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('messaggio');
+            
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
+
+        // Effetto typewriter per placeholder
+        function typewriterEffect() {
+            const textarea = document.getElementById('messaggio');
+            const messages = [
+                'Descrivi il tuo progetto di ristrutturazione...',
+                'Specifica le dimensioni degli ambienti...',
+                'Indica i materiali preferiti...',
+                'Menziona i tempi di realizzazione...'
+            ];
+            
+            let messageIndex = 0;
+            let charIndex = 0;
+            
+            function typeMessage() {
+                if (textarea.value === '' && !textarea.matches(':focus')) {
+                    if (charIndex < messages[messageIndex].length) {
+                        textarea.placeholder = messages[messageIndex].substring(0, charIndex + 1);
+                        charIndex++;
+                        setTimeout(typeMessage, 100);
+                    } else {
+                        setTimeout(() => {
+                            charIndex = 0;
+                            messageIndex = (messageIndex + 1) % messages.length;
+                            textarea.placeholder = '';
+                            setTimeout(typeMessage, 2000);
+                        }, 3000);
+                    }
+                }
+            }
+            
+            // Avvia l'effetto dopo il caricamento
+            setTimeout(typeMessage, 3000);
+        }
+
+        // Avvia l'effetto typewriter
+        document.addEventListener('DOMContentLoaded', typewriterEffect);
+
+        // Integrazione mappa (placeholder per Google Maps)
+        function initMap() {
+            // Sostituisci con vero Google Maps API quando disponibile
+            const mapContainer = document.querySelector('.map-placeholder');
+            
+            // Simula caricamento mappa
+            setTimeout(() => {
+                mapContainer.innerHTML = `
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; text-align: center; flex-direction: column;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">📍</div>
+                        <div><strong>T.E.C.H Building Future Srl</strong></div>
+                        <div>Via Luigi Borghi, 8</div>
+                        <div>21013 Gallarate (VA)</div>
+                        <div style="margin-top: 15px; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 20px; cursor: pointer;" onclick="openGoogleMaps()">
+                            Apri in Google Maps
+                        </div>
+                    </div>
+                `;
+            }, 2000);
+        }
+
+        // Apri Google Maps
+        function openGoogleMaps() {
+            const address = encodeURIComponent('Via Luigi Borghi, 8, 21013 Gallarate VA');
+            window.open(`https://maps.google.com/?q=${address}`, '_blank');
+        }
+
+        // Inizializza mappa
+        document.addEventListener('DOMContentLoaded', initMap);
+
+        // Conta caratteri per textarea
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('messaggio');
+            const charCounter = document.createElement('div');
+            charCounter.style.cssText = `
+                font-size: 0.875rem;
+                color: #666;
+                text-align: right;
+                margin-top: 5px;
+            `;
+            
+            textarea.parentNode.appendChild(charCounter);
+            
+            textarea.addEventListener('input', function() {
+                const length = this.value.length;
+                charCounter.textContent = `${length}/1000 caratteri`;
+                
+                if (length > 800) {
+                    charCounter.style.color = '#ff9500';
+                }
+                if (length > 950) {
+                    charCounter.style.color = '#dc3545';
+                }
+                if (length <= 800) {
+                    charCounter.style.color = '#666';
+                }
+            });
+            
+            // Imposta contatore iniziale
+            charCounter.textContent = '0/1000 caratteri';
+        });
+
+        // Easter egg: Effetto coriandoli per form inviato con successo
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 10px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    top: -10px;
+                    left: ${Math.random() * 100}vw;
+                    z-index: 10000;
+                    border-radius: 50%;
+                    animation: fall ${Math.random() * 2 + 3}s linear forwards;
+                    pointer-events: none;
+                `;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // CSS per animazione coriandoli
+        const confettiStyle = document.createElement('style');
+        confettiStyle.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(confettiStyle);
+
+        // Trigger coriandoli quando form viene inviato con successo
+        const originalHandleFormSubmit = window.handleFormSubmit;
+        window.handleFormSubmit = function(event) {
+            originalHandleFormSubmit(event);
+            setTimeout(createConfetti, 500);
+        };
+    </script>
+</body>
+</html>
