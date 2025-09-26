@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - T.E.C.H Building Future</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.1) 25%,
+                rgba(102, 126, 234, 0.05) 50%,
+                rgba(118, 75, 162, 0.1) 75%,
+                rgba(102, 126, 234, 0.1) 100%);
+            z-index: -2;
+            animation: backgroundFlow 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFlow {
+            0%, 100% { 
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.1) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.05) 50%,
+                    rgba(118, 75, 162, 0.1) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, 
+                    rgba(102, 126, 234, 0.05) 0%, 
+                    rgba(118, 75, 162, 0.1) 25%,
+                    rgba(102, 126, 234, 0.1) 50%,
+                    rgba(118, 75, 162, 0.05) 75%,
+                    rgba(102, 126, 234, 0.1) 100%);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a365d;
+            text-decoration: none;
+            transition: font-size 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a365d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a365d;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: #1a365d;
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            margin: 0 20px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #2d3748;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 20px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .story-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .story-content h3::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            color: #2d3748;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .highlight-text {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #1a365d;
+            font-weight: 600;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+            background: white;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .value-card h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #2d3748;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .mission-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="missionPattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23missionPattern)"/></svg>');
+            z-index: 0;
+        }
+
+        .mission-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-section h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .mission-section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            margin: 0 15px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .cta-button.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a365d;
+            font-size: 1.1rem;
+            text-align: center;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="imgPattern" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="none" stroke="rgba(102,126,234,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23imgPattern)"/></svg>');
+            z-index: 0;
+        }
+
+        .image-placeholder-content {
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        /* OTTIMIZZAZIONI MOBILE AVANZATE */
+        @media (max-width: 768px) {
+            /* HEADER E NAVIGAZIONE MOBILE */
+            .header {
+                padding: 12px 0;
+            }
+            
+            .nav {
+                padding: 0 15px;
+                position: relative;
+            }
+            
+            .logo {
+                font-size: 18px;
+                line-height: 1.2;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 25px 20px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+                border-radius: 0 0 20px 20px;
+                z-index: 1000;
+                gap: 0;
+                display: none;
+                margin-top: 10px;
+            }
+            
+            .nav-links.show {
+                display: flex;
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .nav-links li {
+                margin-bottom: 15px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                font-size: 16px;
+                padding: 15px 20px;
+                display: block;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                width: 100%;
+                color: #1a365d;
+                font-weight: 600;
+            }
+            
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+                color: #667eea;
+                transform: scale(1.02);
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block !important;
+                font-size: 20px;
+                padding: 10px;
+                background: rgba(102, 126, 234, 0.1);
+                border-radius: 10px;
+            }
+
+            /* BREADCRUMB MOBILE */
+            .breadcrumb {
+                padding: 15px 0;
+                margin-top: 70px;
+            }
+
+            .breadcrumb-content {
+                padding: 0 15px;
+                font-size: 14px;
+            }
+
+            /* HERO SECTION MOBILE */
+            .hero-section {
+                padding: 40px 0;
+                margin: 20px 15px;
+                border-radius: 15px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+
+            .hero-title::after {
+                width: 80px;
+                height: 3px;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                padding: 0 10px;
+            }
+
+            /* CONTENT SECTIONS MOBILE */
+            .content-section {
+                padding: 40px 20px;
+                margin: 30px 15px;
+                border-radius: 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .section-title::after {
+                width: 60px;
+                height: 3px;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 35px;
+                padding: 0 5px;
+            }
+
+            /* STORY GRID MOBILE */
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin: 40px 0;
+            }
+
+            .story-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                padding-left: 25px;
+                line-height: 1.3;
+            }
+
+            .story-content h3::before {
+                left: 0;
+                width: 3px;
+                height: 25px;
+            }
+
+            .story-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 20px;
+            }
+
+            /* IMAGE PLACEHOLDER MOBILE */
+            .image-placeholder {
+                height: 250px;
+                border-radius: 12px;
+                font-size: 1rem;
+            }
+
+            .image-placeholder-content {
+                padding: 20px;
+            }
+
+            /* STATS CONTAINER MOBILE */
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin: 30px 0;
+            }
+
+            .stat-card {
+                padding: 25px 15px;
+                border-radius: 12px;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+            }
+
+            .stat-label {
+                font-size: 0.95rem;
+                line-height: 1.3;
+            }
+
+            /* VALUES GRID MOBILE */
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 40px 0;
+            }
+
+            .value-card {
+                padding: 30px 20px;
+                border-radius: 12px;
+            }
+
+            .value-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .value-card h4 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+
+            .value-card p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            /* MISSION SECTION MOBILE */
+            .mission-section {
+                padding: 40px 20px;
+                margin: 40px 15px;
+                border-radius: 15px;
+            }
+
+            .mission-section h3 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+                line-height: 1.2;
+            }
+
+            .mission-section p {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+
+            /* CTA SECTION MOBILE */
+            .cta-section {
+                padding: 50px 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                line-height: 1.2;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+                line-height: 1.6;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                max-width: 280px;
+                margin: 12px auto;
+                padding: 16px 30px;
+                font-size: 15px;
+                border-radius: 12px;
+                text-align: center;
+            }
+
+            /* CONTAINER MOBILE */
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+        }
+
+        /* OTTIMIZZAZIONI PER SCHERMI MOLTO PICCOLI */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-section {
+                padding: 35px 15px;
+                margin: 15px 10px;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin: 20px 10px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .story-content h3 {
+                font-size: 1.3rem;
+                padding-left: 20px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 20px 15px;
+            }
+
+            .mission-section {
+                padding: 30px 15px;
+                margin: 30px 10px;
+            }
+
+            .mission-section h3 {
+                font-size: 1.7rem;
+            }
+
+            .mission-section p {
+                font-size: 1rem;
+            }
+
+            .value-card {
+                padding: 25px 15px;
+            }
+
+            .image-placeholder {
+                height: 200px;
+            }
+        }
+
+        /* ORIENTAMENTO LANDSCAPE SU MOBILE */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero-section {
+                padding: 30px 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .story-grid {
+                gap: 25px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 20px 10px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">T.E.C.H Building Future S.r.l</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#calcolatore">Calcolatore</a></li>
+                <li><a href="chi-siamo.html" class="active">Chi Siamo</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <a href="index.html">Home</a> / Chi Siamo
+        </div>
+    </div>
+
+    <section class="hero-section fade-in">
+        <div class="container">
+            <h1 class="hero-title">Chi Siamo</h1>
+            <p class="hero-tagline">Quando l'imbiancatura diventa arte</p>
+            <p class="hero-description">
+                Un'azienda giovane e innovativa che dal 2010 trasforma l'edilizia tradizionale 
+                in opere d'arte, unendo esperienza generazionale e tecnologie all'avanguardia.
+            </p>
+        </div>
+    </section>
+
+    <div class="content-section fade-in">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h3>La Nostra Storia</h3>
+                    <p>
+                        <span class="highlight-text">T.E.C.H Building Future Srl</span> nasce nel 2010 
+                        dall'esperienza tramandata da generazioni nel settore edilizio. Con più di 
+                        <strong>15 anni di esperienza</strong>, siamo specializzati nella trasformazione 
+                        dell'imbiancatura in una vera e propria forma d'arte.
+                    </p>
+                    <p>
+                        Ci distinguiamo per la realizzazione di finiture esterne con le varie tipologie 
+                        di <strong>cappotti termici</strong>, pareti in <strong>cartongesso</strong>, 
+                        controsoffitti e finiture di ogni tipo, dall'interno all'esterno.
+                    </p>
+                </div>
+                <div class="image-placeholder">
+                    <div class="image-placeholder-content">
+                        📸 La nostra storia in immagini<br>
+                        <small>Foto dei primi progetti del 2010</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section fade-in">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Anni di Esperienza</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2010</div>
+                    <div class="stat-label">Anno di Fondazione</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Progetti Completati</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Soddisfazione Clienti</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mission-section fade-in">
+        <div class="mission-content">
+            <h3>La Nostra Missione</h3>
+            <p>
+                Fornire soluzioni innovative e sostenibili nel settore edilizio, attraverso l'uso 
+                delle migliori tecnologie nelle ristrutturazioni. Creare spazi funzionali e moderni 
+                per migliorare la qualità della vita e il benessere delle persone.
+            </p>
+        </div>
+    </div>
+
+    <div class="content-section fade-in">
+        <div class="container">
+            <h2 class="section-title">La Nostra Maestria</h2>
+            <p class="section-subtitle">Eccellenza tecnica e artistica in ogni dettaglio</p>
+            
+            <div class="story-grid">
+                <div class="image-placeholder">
+                    <div class="image-placeholder-content">
+                        🎨 Decorazioni artistiche<br>
+                        <small>Stucco veneziano e spatolati</small>
+                    </div>
+                </div>
+                <div class="story-content">
+                    <h3>Specializzazioni Uniche</h3>
+                    <p>
+                        La nostra maestria si estende dalla creazione di <strong>superfici impeccabili</strong> 
+                        fino alla cura di dettagli unici e personalizzati, come decorazioni d'interni con 
+                        <span class="highlight-text">stucco veneziano</span>, <span class="highlight-text">spatolati marmorino</span>, 
+                        e tecniche decorative come il <span class="highlight-text">finto mare</span>.
+                    </p>
+                    <p>
+                        Utilizziamo solo materiali di alta qualità, come <strong>resine</strong>, 
+                        <strong>silicati</strong> e <strong>rivestimenti speciali</strong>, per 
+                        garantire risultati duraturi e raffinati.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section fade-in">
+        <div class="container">
+            <h2 class="section-title">I Nostri Valori</h2>
+            <p class="section-subtitle">Principi che guidano ogni nostro progetto</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h4>Approccio Personalizzato</h4>
+                    <p>Ogni progetto è pensato su misura, con una consulenza dedicata per garantire soluzioni che soddisfino pienamente le esigenze del cliente.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h4>Impegno verso la Qualità</h4>
+                    <p>Monitoraggio continuo dei lavori, garanzia di materiali di alta qualità e rispetto rigoroso delle normative di sicurezza.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h4>Innovazione Continua</h4>
+                    <p>Utilizzo delle ultime tecnologie nel settore edilizio per ottimizzare i processi e migliorare la qualità riducendo i costi.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h4>Sostenibilità</h4>
+                    <p>Progettazione e costruzione di edifici a basso consumo energetico, con soluzioni green come impianti fotovoltaici e isolamento avanzato.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🛠️</div>
+                    <h4>Servizi di Manutenzione</h4>
+                    <p>Interventi di manutenzione ordinaria e straordinaria per preservare il valore e l'efficienza degli edifici nel tempo.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h4>Collaborazione Totale</h4>
+                    <p>Lavoriamo a stretto contatto con il cliente, dalla progettazione iniziale al completamento finale, coordinando ogni fase del progetto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Il Nostro Processo</h2>
+            <p class="section-subtitle">Dal bozzetto all'esecutivo finale</p>
+            
+            <div class="story-grid">
+                <div class="story-content">
+                    <h3>Metodologia Professionale</h3>
+                    <p>
+                        Tutti i nostri lavori sono <strong>coordinati insieme al cliente</strong>, 
+                        dal bozzetto fino all'esecutivo finale. Le nostre <span class="highlight-text">ristrutturazioni chiavi in mano</span> 
+                        garantiscono il massimo livello di qualità e manodopera.
+                    </p>
+                    <p>
+                        Offriamo <strong>soluzioni su misura</strong> per ogni esigenza, dalle ristrutturazioni 
+                        complete alla posa di isolamento termico a cappotto, garantendo un'elevata 
+                        sicurezza e competenza in ogni fase del progetto.
+                    </p>
+                </div>
+                <div class="image-placeholder">
+                    <div class="image-placeholder-content">
+                        📋 Processo di lavoro<br>
+                        <small>Dalla progettazione alla realizzazione</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section fade-in">
+        <div class="container">
+            <h2 style="color: #1a365d; margin-bottom: 30px; font-size: 2.2rem;">Inizia il Tuo Progetto</h2>
+            <p style="color: #2d3748; font-size: 1.2rem; margin-bottom: 40px; font-weight: 500;">
+                Vi invitiamo a mettervi in contatto per un preventivo gratuito e scoprire 
+                come possiamo aiutarvi nella realizzazione dei vostri progetti edilizi.
+            </p>
+            <a href="index.html#calcolatore" class="cta-button">Calcola Preventivo Online</a>
+            <a href="contatti.html" class="cta-button secondary">Richiedi Sopralluogo</a>
+        </div>
+    </div>
+
+    <script>
+        // INIZIALIZZAZIONE PRINCIPALE
+        document.addEventListener('DOMContentLoaded', function() {
+            initMobileMenu();
+            initScrollEffects();
+            initAnimations();
+        });
+
+        // ===============================
+        // MENU MOBILE OTTIMIZZATO
+        // ===============================
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                    
+                    // Cambia icona del menu con animazione
+                    if (navLinks.classList.contains('show')) {
+                        mobileMenuBtn.innerHTML = '✕';
+                        mobileMenuBtn.style.transform = 'rotate(90deg)';
+                    } else {
+                        mobileMenuBtn.innerHTML = '☰';
+                        mobileMenuBtn.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Chiudi menu quando si clicca su un link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '☰';
+                        mobileMenuBtn.style.transform = 'rotate(0deg)';
+                    });
+                });
+                
+                // Chiudi menu quando si clicca fuori
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.nav') && navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '☰';
+                        mobileMenuBtn.style.transform = 'rotate(0deg)';
+                    }
+                });
+            }
+        }
+
+        // ===============================
+        // EFFETTI SCROLL OTTIMIZZATI
+        // ===============================
+        function initScrollEffects() {
+            // Header scroll effect con throttling per performance
+            let ticking = false;
+            
+            function updateHeader() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'none';
+                }
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateHeader);
+                    ticking = true;
+                }
+            });
+
+            // Smooth scrolling ottimizzato per mobile
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const mobileOffset = window.innerWidth <= 768 ? 20 : 0;
+                        const targetPosition = target.offsetTop - headerHeight - mobileOffset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ===============================
+        // ANIMAZIONI E INTERAZIONI
+        // ===============================
+        function initAnimations() {
+            // Animazioni fade-in ottimizzate per mobile
+            const observerOptions = {
+                threshold: window.innerWidth <= 768 ? 0.05 : 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            // Osserva tutti gli elementi con classe fade-in
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animazione dei numeri delle statistiche
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        const text = statNumber.textContent;
+                        
+                        // Anima solo se non è già stato animato
+                        if (!statNumber.classList.contains('animated')) {
+                            statNumber.classList.add('animated');
+                            animateNumber(statNumber, text);
+                        }
+                        
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stat-card').forEach(card => {
+                statsObserver.observe(card);
+            });
+
+            // Effetti hover ottimizzati per mobile e desktop
+            setTimeout(() => {
+                // Value cards hover effects
+                document.querySelectorAll('.value-card').forEach(card => {
+                    if (window.innerWidth > 768) {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transform = 'translateY(-12px) scale(1.02)';
+                            this.style.boxShadow = '0 25px 60px rgba(102, 126, 234, 0.2)';
+                        });
+                        
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transform = 'translateY(0) scale(1)';
+                            this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                        });
+                    } else {
+                        // Touch feedback per mobile
+                        card.addEventListener('touchstart', function() {
+                            this.style.transform = 'scale(0.98)';
+                        });
+                        
+                        card.addEventListener('touchend', function() {
+                            this.style.transform = 'scale(1)';
+                        });
+                    }
+                });
+
+                // Stat cards hover effects
+                document.querySelectorAll('.stat-card').forEach(card => {
+                    if (window.innerWidth > 768) {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transform = 'translateY(-8px) scale(1.05)';
+                            this.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.2)';
+                        });
+                        
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transform = 'translateY(0) scale(1)';
+                            this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                        });
+                    }
+                });
+            }, 500);
+        }
+
+        // ===============================
+        // FUNZIONI UTILITY
+        // ===============================
+        
+        // Animazione numerica per le statistiche
+        function animateNumber(element, targetText) {
+            let target = parseInt(targetText.replace(/\D/g, ''));
+            let suffix = targetText.replace(/\d/g, '');
+            let current = 0;
+            let increment = target / 50;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 30);
+        }
+
+        // Ottimizzazioni per touch e mobile
+        function initTouchOptimizations() {
+            // Migliora il feedback tattile
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.95)';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+                
+                button.addEventListener('touchcancel', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Dimensioni minime touch-friendly
+            document.querySelectorAll('button, .cta-button, a').forEach(element => {
+                const computedStyle = getComputedStyle(element);
+                const minHeight = parseInt(computedStyle.minHeight);
+                if (minHeight < 44) {
+                    element.style.minHeight = '44px';
+                }
+            });
+        }
+
+        // Gestione orientamento schermo
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                // Chiudi menu mobile se aperto
+                const navLinks = document.querySelector('.nav-links');
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                
+                if (navLinks && navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.innerHTML = '☰';
+                        mobileMenuBtn.style.transform = 'rotate(0deg)';
+                    }
+                }
+                
+                // Forza ridisegno per fix layout
+                window.scrollTo(window.scrollX, window.scrollY);
+            }, 200);
+        });
+
+        // Inizializza ottimizzazioni touch
+        document.addEventListener('DOMContentLoaded', initTouchOptimizations);
+
+        // Performance optimizations
+        if ('loading' in HTMLImageElement.prototype) {
+            // Browser supports lazy loading
+            document.querySelectorAll('img').forEach(img => {
+                img.loading = 'lazy';
+            });
+        }
+
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+        preloadLink.as = 'style';
+        document.head.appendChild(preloadLink);
+    </script>
+</body>
+</html>
