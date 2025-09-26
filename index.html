@@ -550,11 +550,11 @@
             transform: translateY(-2px);
         }
 
-        /* OTTIMIZZAZIONI MOBILE MIGLIORATE */
+        /* OTTIMIZZAZIONI MOBILE AVANZATE */
         @media (max-width: 768px) {
             /* HEADER E NAVIGAZIONE MOBILE */
             .header {
-                padding: 10px 0;
+                padding: 12px 0;
             }
             
             .nav {
@@ -585,7 +585,7 @@
             }
             
             .nav-links.show {
-                display: flex !important;
+                display: flex;
                 animation: slideDown 0.3s ease-out;
             }
             
@@ -622,6 +622,10 @@
                 background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
                 color: #667eea;
                 transform: scale(1.02);
+            }
+            
+            .nav-links a::after {
+                display: none;
             }
             
             .mobile-menu-btn {
