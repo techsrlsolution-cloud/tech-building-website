@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Siamo - T.E.C.H Building Future</title>
+    <title>Chi Siamo - T.E.C.H Building Future </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -79,7 +79,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
 
         .logo {
@@ -87,14 +86,12 @@
             font-weight: 700;
             color: #1a365d;
             text-decoration: none;
-            transition: font-size 0.3s ease;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 40px;
-            transition: all 0.3s ease;
         }
 
         .nav-links a {
@@ -125,22 +122,6 @@
         .nav-links a:hover::after,
         .nav-links a.active::after {
             width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #1a365d;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn:hover {
-            background: rgba(102, 126, 234, 0.1);
         }
 
         .breadcrumb {
@@ -515,388 +496,37 @@
             font-weight: 600;
         }
 
-        /* OTTIMIZZAZIONI MOBILE AVANZATE */
         @media (max-width: 768px) {
-            /* HEADER E NAVIGAZIONE MOBILE */
-            .header {
-                padding: 12px 0;
-            }
-            
-            .nav {
-                padding: 0 15px;
-                position: relative;
-            }
-            
-            .logo {
-                font-size: 18px;
-                line-height: 1.2;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 25px 20px;
-                box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-                border-radius: 0 0 20px 20px;
-                z-index: 1000;
-                gap: 0;
-                display: none;
-                margin-top: 10px;
-            }
-            
-            .nav-links.show {
-                display: flex;
-                animation: slideDown 0.3s ease-out;
-            }
-            
-            @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            .nav-links li {
-                margin-bottom: 15px;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-links a {
-                font-size: 16px;
-                padding: 15px 20px;
-                display: block;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-                width: 100%;
-                color: #1a365d;
-                font-weight: 600;
-            }
-            
-            .nav-links a:hover,
-            .nav-links a.active {
-                background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-                color: #667eea;
-                transform: scale(1.02);
-            }
-            
-            .nav-links a::after {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block !important;
-                font-size: 20px;
-                padding: 10px;
-                background: rgba(102, 126, 234, 0.1);
-                border-radius: 10px;
-            }
-
-            /* BREADCRUMB MOBILE */
-            .breadcrumb {
-                padding: 15px 0;
-                margin-top: 70px;
-            }
-
-            .breadcrumb-content {
-                padding: 0 15px;
-                font-size: 14px;
-            }
-
-            /* HERO SECTION MOBILE */
-            .hero-section {
-                padding: 40px 0;
-                margin: 20px 15px;
-                border-radius: 15px;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-                line-height: 1.1;
-                margin-bottom: 15px;
-            }
-
-            .hero-title::after {
-                width: 80px;
-                height: 3px;
-            }
-
-            .hero-tagline {
-                font-size: 1.1rem;
-                margin-bottom: 20px;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-                line-height: 1.6;
-                padding: 0 10px;
-            }
-
-            /* CONTENT SECTIONS MOBILE */
-            .content-section {
-                padding: 40px 20px;
-                margin: 30px 15px;
-                border-radius: 15px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 15px;
-                line-height: 1.2;
-            }
-
-            .section-title::after {
-                width: 60px;
-                height: 3px;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 35px;
-                padding: 0 5px;
-            }
-
-            /* STORY GRID MOBILE */
-            .story-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin: 40px 0;
-            }
-
-            .story-content h3 {
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-                padding-left: 25px;
-                line-height: 1.3;
-            }
-
-            .story-content h3::before {
-                left: 0;
-                width: 3px;
-                height: 25px;
-            }
-
-            .story-content p {
-                font-size: 1rem;
-                line-height: 1.7;
-                margin-bottom: 20px;
-            }
-
-            /* IMAGE PLACEHOLDER MOBILE */
-            .image-placeholder {
-                height: 250px;
-                border-radius: 12px;
-                font-size: 1rem;
-            }
-
-            .image-placeholder-content {
-                padding: 20px;
-            }
-
-            /* STATS CONTAINER MOBILE */
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                margin: 30px 0;
-            }
-
-            .stat-card {
-                padding: 25px 15px;
-                border-radius: 12px;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-                margin-bottom: 8px;
-            }
-
-            .stat-label {
-                font-size: 0.95rem;
-                line-height: 1.3;
-            }
-
-            /* VALUES GRID MOBILE */
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                margin: 40px 0;
-            }
-
-            .value-card {
-                padding: 30px 20px;
-                border-radius: 12px;
-            }
-
-            .value-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-            }
-
-            .value-card h4 {
-                font-size: 1.2rem;
-                margin-bottom: 12px;
-            }
-
-            .value-card p {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-
-            /* MISSION SECTION MOBILE */
-            .mission-section {
-                padding: 40px 20px;
-                margin: 40px 15px;
-                border-radius: 15px;
-            }
-
-            .mission-section h3 {
-                font-size: 2rem;
-                margin-bottom: 25px;
-                line-height: 1.2;
-            }
-
-            .mission-section p {
-                font-size: 1.1rem;
-                line-height: 1.7;
-            }
-
-            /* CTA SECTION MOBILE */
-            .cta-section {
-                padding: 50px 15px;
-            }
-
-            .cta-section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-                line-height: 1.2;
-            }
-
-            .cta-section p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-                padding: 0 10px;
-                line-height: 1.6;
-            }
-
-            .cta-button {
-                display: block;
-                width: 100%;
-                max-width: 280px;
-                margin: 12px auto;
-                padding: 16px 30px;
-                font-size: 15px;
-                border-radius: 12px;
-                text-align: center;
-            }
-
-            /* CONTAINER MOBILE */
-            .container {
-                padding: 0 15px;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-        }
-
-        /* OTTIMIZZAZIONI PER SCHERMI MOLTO PICCOLI */
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.9rem;
-            }
-
-            .hero-section {
-                padding: 35px 15px;
-                margin: 15px 10px;
-            }
-
-            .content-section {
-                padding: 30px 15px;
-                margin: 20px 10px;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .story-content h3 {
-                font-size: 1.3rem;
-                padding-left: 20px;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .stat-card {
-                padding: 20px 15px;
-            }
-
-            .mission-section {
-                padding: 30px 15px;
-                margin: 30px 10px;
-            }
-
-            .mission-section h3 {
-                font-size: 1.7rem;
-            }
-
-            .mission-section p {
-                font-size: 1rem;
-            }
-
-            .value-card {
-                padding: 25px 15px;
-            }
-
-            .image-placeholder {
-                height: 200px;
-            }
-        }
-
-        /* ORIENTAMENTO LANDSCAPE SU MOBILE */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .hero-section {
-                padding: 30px 0;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .story-grid {
-                gap: 25px;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
-            }
-
-            .stat-card {
-                padding: 20px 10px;
-            }
-
-            .stat-number {
-                font-size: 1.8rem;
-            }
-
-            .stat-label {
-                font-size: 0.85rem;
-            }
-        }
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-section {
+        margin: 20px 10px;
+        padding: 40px 20px;
+    }
+}
 
         .fade-in {
             opacity: 0;
@@ -922,7 +552,6 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contatti.html">Contatti</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </nav>
     </header>
 
@@ -1121,134 +750,88 @@
     </div>
 
     <script>
-        // INIZIALIZZAZIONE PRINCIPALE
-        document.addEventListener('DOMContentLoaded', function() {
-            initMobileMenu();
-            initScrollEffects();
-            initAnimations();
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
         });
 
-        // ===============================
-        // MENU MOBILE OTTIMIZZATO
-        // ===============================
-        function initMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileMenuBtn && navLinks) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    navLinks.classList.toggle('show');
+        // Smooth scrolling per i link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
                     
-                    // Cambia icona del menu con animazione
-                    if (navLinks.classList.contains('show')) {
-                        mobileMenuBtn.innerHTML = '✕';
-                        mobileMenuBtn.style.transform = 'rotate(90deg)';
-                    } else {
-                        mobileMenuBtn.innerHTML = '☰';
-                        mobileMenuBtn.style.transform = 'rotate(0deg)';
-                    }
-                });
-                
-                // Chiudi menu quando si clicca su un link
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('show');
-                        mobileMenuBtn.innerHTML = '☰';
-                        mobileMenuBtn.style.transform = 'rotate(0deg)';
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
-                });
-                
-                // Chiudi menu quando si clicca fuori
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.nav') && navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
-                        mobileMenuBtn.innerHTML = '☰';
-                        mobileMenuBtn.style.transform = 'rotate(0deg)';
-                    }
-                });
-            }
-        }
-
-        // ===============================
-        // EFFETTI SCROLL OTTIMIZZATI
-        // ===============================
-        function initScrollEffects() {
-            // Header scroll effect con throttling per performance
-            let ticking = false;
-            
-            function updateHeader() {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'none';
-                }
-                ticking = false;
-            }
-            
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(updateHeader);
-                    ticking = true;
                 }
             });
+        });
 
-            // Smooth scrolling ottimizzato per mobile
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        const headerHeight = document.querySelector('.header').offsetHeight;
-                        const mobileOffset = window.innerWidth <= 768 ? 20 : 0;
-                        const targetPosition = target.offsetTop - headerHeight - mobileOffset;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+        // Animazioni al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }
+        }, observerOptions);
 
-        // ===============================
-        // ANIMAZIONI E INTERAZIONI
-        // ===============================
-        function initAnimations() {
-            // Animazioni fade-in ottimizzate per mobile
-            const observerOptions = {
-                threshold: window.innerWidth <= 768 ? 0.05 : 0.1,
-                rootMargin: '0px 0px -30px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
-                    }
-                });
-            }, observerOptions);
-
-            // Osserva tutti gli elementi con classe fade-in
+        // Osserva tutti gli elementi con classe fade-in
+        document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
 
             // Animazione dei numeri delle statistiche
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const animateNumber = (element, target, suffix = '') => {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current) + suffix;
+                    }
+                }, 30);
+            };
+
+            // Avvia animazione quando le statistiche diventano visibili
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const statNumber = entry.target.querySelector('.stat-number');
                         const text = statNumber.textContent;
                         
-                        // Anima solo se non è già stato animato
-                        if (!statNumber.classList.contains('animated')) {
-                            statNumber.classList.add('animated');
-                            animateNumber(statNumber, text);
+                        if (text.includes('+')) {
+                            const number = parseInt(text);
+                            animateNumber(statNumber, number, '+');
+                        } else if (text.includes('%')) {
+                            const number = parseInt(text);
+                            animateNumber(statNumber, number, '%');
+                        } else {
+                            const number = parseInt(text);
+                            animateNumber(statNumber, number);
                         }
                         
                         statsObserver.unobserve(entry.target);
@@ -1259,136 +842,96 @@
             document.querySelectorAll('.stat-card').forEach(card => {
                 statsObserver.observe(card);
             });
-
-            // Effetti hover ottimizzati per mobile e desktop
-            setTimeout(() => {
-                // Value cards hover effects
-                document.querySelectorAll('.value-card').forEach(card => {
-                    if (window.innerWidth > 768) {
-                        card.addEventListener('mouseenter', function() {
-                            this.style.transform = 'translateY(-12px) scale(1.02)';
-                            this.style.boxShadow = '0 25px 60px rgba(102, 126, 234, 0.2)';
-                        });
-                        
-                        card.addEventListener('mouseleave', function() {
-                            this.style.transform = 'translateY(0) scale(1)';
-                            this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                        });
-                    } else {
-                        // Touch feedback per mobile
-                        card.addEventListener('touchstart', function() {
-                            this.style.transform = 'scale(0.98)';
-                        });
-                        
-                        card.addEventListener('touchend', function() {
-                            this.style.transform = 'scale(1)';
-                        });
-                    }
-                });
-
-                // Stat cards hover effects
-                document.querySelectorAll('.stat-card').forEach(card => {
-                    if (window.innerWidth > 768) {
-                        card.addEventListener('mouseenter', function() {
-                            this.style.transform = 'translateY(-8px) scale(1.05)';
-                            this.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.2)';
-                        });
-                        
-                        card.addEventListener('mouseleave', function() {
-                            this.style.transform = 'translateY(0) scale(1)';
-                            this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                        });
-                    }
-                });
-            }, 500);
-        }
-
-        // ===============================
-        // FUNZIONI UTILITY
-        // ===============================
-        
-        // Animazione numerica per le statistiche
-        function animateNumber(element, targetText) {
-            let target = parseInt(targetText.replace(/\D/g, ''));
-            let suffix = targetText.replace(/\d/g, '');
-            let current = 0;
-            let increment = target / 50;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + suffix;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + suffix;
-                }
-            }, 30);
-        }
-
-        // Ottimizzazioni per touch e mobile
-        function initTouchOptimizations() {
-            // Migliora il feedback tattile
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.95)';
-                });
-                
-                button.addEventListener('touchend', function() {
-                    this.style.transform = 'scale(1)';
-                });
-                
-                button.addEventListener('touchcancel', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
-
-            // Dimensioni minime touch-friendly
-            document.querySelectorAll('button, .cta-button, a').forEach(element => {
-                const computedStyle = getComputedStyle(element);
-                const minHeight = parseInt(computedStyle.minHeight);
-                if (minHeight < 44) {
-                    element.style.minHeight = '44px';
-                }
-            });
-        }
-
-        // Gestione orientamento schermo
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                // Chiudi menu mobile se aperto
-                const navLinks = document.querySelector('.nav-links');
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                
-                if (navLinks && navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    if (mobileMenuBtn) {
-                        mobileMenuBtn.innerHTML = '☰';
-                        mobileMenuBtn.style.transform = 'rotate(0deg)';
-                    }
-                }
-                
-                // Forza ridisegno per fix layout
-                window.scrollTo(window.scrollX, window.scrollY);
-            }, 200);
         });
 
-        // Inizializza ottimizzazioni touch
-        document.addEventListener('DOMContentLoaded', initTouchOptimizations);
+        // Effetti hover per le carte dei valori
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.value-card').forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-12px) scale(1.02)';
+                        this.style.boxShadow = '0 25px 60px rgba(102, 126, 234, 0.2)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                        this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                    });
+                });
 
-        // Performance optimizations
-        if ('loading' in HTMLImageElement.prototype) {
-            // Browser supports lazy loading
-            document.querySelectorAll('img').forEach(img => {
-                img.loading = 'lazy';
-            });
+                // Effetti hover per le carte delle statistiche
+                document.querySelectorAll('.stat-card').forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-8px)';
+                        this.style.boxShadow = '0 20px 40px rgba(102, 126, 234, 0.2)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                    });
+                });
+            }, 1000);
+        });
+
+        // Menu mobile (se necessario)
+        function createMobileMenu() {
+            const nav = document.querySelector('.nav');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (window.innerWidth <= 768 && !nav.querySelector('.mobile-menu-btn')) {
+                const mobileBtn = document.createElement('button');
+                mobileBtn.className = 'mobile-menu-btn';
+                mobileBtn.innerHTML = '☰';
+                mobileBtn.style.cssText = `
+                    display: block;
+                    background: none;
+                    border: none;
+                    font-size: 24px;
+                    color: #1a365d;
+                    cursor: pointer;
+                    padding: 5px;
+                `;
+                
+                nav.appendChild(mobileBtn);
+                
+                mobileBtn.addEventListener('click', () => {
+                    if (navLinks.style.display === 'block') {
+                        navLinks.style.display = 'none';
+                    } else {
+                        navLinks.style.display = 'block';
+                        navLinks.style.position = 'absolute';
+                        navLinks.style.top = '100%';
+                        navLinks.style.left = '0';
+                        navLinks.style.right = '0';
+                        navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
+                        navLinks.style.flexDirection = 'column';
+                        navLinks.style.padding = '20px';
+                        navLinks.style.borderRadius = '0 0 15px 15px';
+                        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
         }
 
-        // Preload critical resources
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
-        preloadLink.as = 'style';
-        document.head.appendChild(preloadLink);
+        // Inizializza menu mobile al caricamento e ridimensionamento
+        document.addEventListener('DOMContentLoaded', createMobileMenu);
+        window.addEventListener('resize', createMobileMenu);
+
+        // Parallax leggero per le sezioni
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const sections = document.querySelectorAll('.content-section');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const speed = 0.5;
+                    const yPos = -(scrolled * speed * (index + 1) * 0.1);
+                    section.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        });
     </script>
 </body>
 </html>
